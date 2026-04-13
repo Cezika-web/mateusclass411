@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Resumo Pós-Aula — Mateus — CZK English</title>
+
+  <style>
+    :root{
+      --page-bg: #f4f7fa;
+      --card-bg: #fff;
+      --accent: #2f86e6;
+      --accent-dark: #1f6fd1;
+      --green: #36b37e;
+      --muted: #6b7280;
+      --border: #e6eef8;
+      --box-radius: 12px;
+      --card-width: 720px;
+    }
+
+    html,body{
+      height:100%;
+      margin:0;
+      padding:0;
+      background:var(--page-bg);
+      font-family:Inter, "Segoe UI", Roboto, Arial, sans-serif;
+    }
+
+    .wrap{
+      min-height:100%;
+      display:flex;
+      align-items:flex-start;
+      justify-content:center;
+      padding:48px 20px;
+    }
+
+    .card{
+      width:100%;
+      max-width:var(--card-width);
+      background:var(--card-bg);
+      border-radius:18px;
+      padding:28px;
+      box-shadow:0 6px 22px rgba(33,47,60,0.06);
+      border:1px solid rgba(15,33,64,0.03);
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:flex-start;
+      gap:12px;
+      margin-bottom:8px;
+    }
+
+    .badge{
+      background:linear-gradient(180deg,#fff,#f2fbff);
+      border:1px solid var(--border);
+      padding:8px 12px;
+      border-radius:999px;
+      color:var(--accent);
+      font-weight:700;
+      font-size:0.85rem;
+    }
+
+    h1{
+      margin:0;
+      font-size:1.3rem;
+      color:#0f1724;
+    }
+
+    .meta{
+      color:var(--muted);
+      font-size:0.92rem;
+      margin-top:6px;
+    }
+
+    .actions{
+      display:flex;
+      gap:10px;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:10px 14px;
+      border-radius:10px;
+      border:none;
+      background:var(--accent);
+      color:#fff;
+      text-decoration:none;
+      font-weight:600;
+      cursor:pointer;
+      box-shadow:0 6px 14px rgba(47,134,230,0.12);
+    }
+
+    .btn.secondary{
+      background:#fff;
+      color:var(--accent);
+      border:1px solid var(--border);
+      box-shadow:none;
+    }
+
+    main{margin-top:18px;}
+    section{margin-top:18px;}
+
+    .panel{
+      background:#fbfdff;
+      border-radius:12px;
+      padding:16px;
+      border:1px solid var(--border);
+    }
+
+    .outline-card{
+      border-radius:10px;
+      border:1px solid var(--border);
+      padding:16px;
+      background:#fff;
+    }
+
+    .vocab-grid{
+      display:flex;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-top:10px;
+    }
+
+    .vocab{
+      flex:1;
+      min-width:220px;
+      border-radius:10px;
+      padding:14px;
+      border:2px solid #dfeefe;
+      background:#fff;
+    }
+
+    .vocab.green{
+      border-color:#c9f3dc;
+      background:#f5fff6;
+    }
+
+    .vocab h3{
+      margin:0;
+      font-size:1rem;
+      color:#154360;
+    }
+
+    .vocab p{
+      margin:8px 0 0 0;
+      color:var(--muted);
+      font-size:0.95rem;
+    }
+
+    .media-row{
+      display:flex;
+      gap:14px;
+      margin-top:12px;
+      flex-wrap:wrap;
+    }
+
+    .media-btn{
+      background:#fff;
+      border:1px solid var(--border);
+      padding:12px 16px;
+      border-radius:10px;
+      font-weight:700;
+      color:var(--accent);
+      text-decoration:none;
+      display:inline-flex;
+      align-items:center;
+      gap:10px;
+      min-width:200px;
+      justify-content:center;
+    }
+
+    .homework{
+      background:#f3fff6;
+      border:1px solid #d7f5df;
+      border-radius:10px;
+      padding:14px;
+      margin-top:10px;
+    }
+
+    .speaking{
+      margin-top:18px;
+      padding:16px;
+      border-radius:12px;
+      background:linear-gradient(180deg,#ffffff,#fbfdff);
+      border:1px solid var(--border);
+      max-width:640px;
+    }
+
+    .speaking h2{
+      margin:0 0 10px 0;
+      font-size:1.05rem;
+      color:#0f1724;
+    }
+
+    .talk-table{
+      width:100%;
+      border-collapse:collapse;
+      border-radius:10px;
+      overflow:hidden;
+      background:#fff;
+      border:1px solid #e1e9f5;
+      font-size:0.9rem;
+    }
+
+    .talk-table th,
+    .talk-table td{
+      padding:8px 10px;
+      text-align:left;
+    }
+
+    .talk-table th{
+      background:#eef4ff;
+      color:#1b3556;
+      font-weight:700;
+      border-bottom:1px solid #dde6fa;
+    }
+
+    .row-teacher{
+      background:#e7f2ff;
+    }
+
+    .row-student{
+      background:#e8f7ef;
+    }
+
+    .talk-label{
+      font-weight:700;
+    }
+
+    .talk-percent{
+      font-weight:700;
+      color:#0f1724;
+    }
+
+    .talk-time{
+      color:var(--muted);
+    }
+
+    footer{
+      margin-top:20px;
+      color:var(--muted);
+      font-size:0.9rem;
+      text-align:center;
+    }
+
+    @media (max-width:720px){
+      .card{padding:18px;border-radius:14px;}
+      .vocab-grid{flex-direction:column;}
+      .media-row{flex-direction:column;}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <article class="card" role="main">
+      <header>
+        <div>
+          <div style="display:flex;gap:10px;align-items:center;">
+            <span class="badge">PÓS-AULA</span>
+            <h1>Soft skills, rotina de trabalho, university life e selling</h1>
+          </div>
+          <div class="meta" style="margin-top:8px;">
+            <strong>Professor:</strong> César &nbsp;•&nbsp;
+            <strong>Aluno:</strong> Mateus &nbsp;•&nbsp;
+            <strong>Data:</strong> 04/11/2026
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="#" onclick="window.print();return false;">Imprimir / Salvar PDF</a>
+        </div>
+      </header>
+
+      <main>
+        <section class="panel">
+          <p style="margin:0;font-weight:600;color:#08325a;">
+            Aula com conversa sobre rotina de trabalho noturno, university life, soft skills, selling e present perfect dentro de vídeo temático.
+          </p>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Resumo da Aula</h2>
+          <div class="outline-card">
+            <p style="margin:0 0 8px 0;">
+              Nesta aula, vocês começaram falando bastante sobre a sua nova rotina, especialmente o equilíbrio entre <strong>trabalho noturno</strong>, <strong>universidade</strong> e sono. Você explicou como funciona o transporte da empresa, os horários do seu turno, a logística entre trabalho e estudo, e o fato de muitas vezes precisar descansar pouco ou dormir em intervalos muito curtos. O professor foi te ajudando a organizar melhor esse tipo de explicação em inglês, com frases sobre turno, rotina, ônibus, horários e deslocamento.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Também entrou bastante vocabulário ligado ao seu novo trabalho, como <em>lifter</em>, <em>bus station</em>, <em>canteen</em>, <em>company bus</em>, <em>third shift</em> e expressões relacionadas a contrato, dia de folga e salário. Além disso, houve uma parte mais pessoal sobre a fase atual da sua vida, o fim do relacionamento, a convivência com novas pessoas no trabalho e a sensação de estar vivendo uma rotina nova, com mais responsabilidades, contas e menos tempo disponível.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              O tema principal da aula foi <strong>soft skills</strong>. Como isso já aparece na sua faculdade, a conversa ficou muito rica. Você explicou que existe até uma disciplina focada nisso e comentou que, na sua área, esse assunto é importante porque muita gente da tecnologia entra muito forte nas <em>hard skills</em>, mas acaba desenvolvendo pouco comunicação, convivência, apresentação, imagem pessoal e trabalho em equipe. O professor puxou essa discussão para comparar gerações, estereótipos da área de tecnologia e a importância de saber “se vender” profissionalmente.
+            </p>
+            <p style="margin:0 0 8px 0;">
+              Nessa parte, vocês discutiram qual é o seu ponto forte e qual é sua fraqueza em <strong>soft skills</strong>. Você destacou sua adaptabilidade e sua facilidade para improvisar, apresentar e falar sobre algo mesmo com pouco preparo prévio. Por outro lado, apontou que <strong>deadline</strong> ainda é um ponto fraco, porque você tende a fazer as coisas no fim do prazo. O professor também explorou a ideia de que a área de tecnologia pode reforçar hábitos de isolamento, controle excessivo e dificuldade com relações presenciais, o que torna o treino de soft skills ainda mais necessário.
+            </p>
+            <p style="margin:0;">
+              Na segunda metade da aula, vocês assistiram e analisaram um vídeo sobre soft skills. A partir dele, revisaram ideias como <em>show up on time</em>, <em>be polite and respectful</em>, <em>attention to detail</em>, <em>get promoted</em> e <em>work in teams</em>. O professor também aproveitou para revisar gramática em contexto, especialmente o <strong>present perfect</strong> em frases como <em>You’ve probably never heard that before</em>, além da estrutura <strong>whether... or not</strong>. No final, a conversa voltou para <strong>selling</strong>, energia em pó e indicação de produtos, conectando tudo à ideia de comunicação, persuasão e como construir uma boa impressão no trabalho e na vida.
+            </p>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Key Vocabulary</h2>
+          <div class="vocab-grid">
+            <div class="vocab">
+              <h3>soft skills</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) habilidades comportamentais</em><br>
+                <small>Good communication is an important soft skill.</small>
+              </p>
+            </div>
+            <div class="vocab green">
+              <h3>whether... or not</h3>
+              <p style="margin-top:8px;font-size:0.92rem;color:var(--muted);">
+                <em>(pt) seja... ou não / quer... ou não</em><br>
+                <small>Whether you realize it or not, it affects your life.</small>
+              </p>
+            </div>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Vocabulário da aula</h2>
+          <div class="outline-card">
+            <h3 style="margin-top:0;">Trabalho e rotina</h3>
+            <ul>
+              <li><strong>lifter</strong> – elevador / equipamento de movimentação</li>
+              <li><strong>pallet / pallets</strong> – pallet / pallets</li>
+              <li><strong>company bus</strong> – ônibus da empresa</li>
+              <li><strong>bus station</strong> – rodoviária / terminal</li>
+              <li><strong>third shift</strong> – terceiro turno</li>
+              <li><strong>salary</strong> – salário</li>
+              <li><strong>canteen</strong> – refeitório / cantina</li>
+              <li><strong>dinner</strong> – jantar</li>
+              <li><strong>breakfast</strong> – café da manhã</li>
+              <li><strong>day off</strong> – folga</li>
+              <li><strong>contract</strong> – contrato</li>
+              <li><strong>bills</strong> – contas</li>
+              <li><strong>gap</strong> – intervalo / lacuna de tempo</li>
+            </ul>
+
+            <h3>Soft skills e trabalho</h3>
+            <ul>
+              <li><strong>soft skills</strong> – habilidades comportamentais</li>
+              <li><strong>hard skills</strong> – habilidades técnicas</li>
+              <li><strong>presentation</strong> – apresentação</li>
+              <li><strong>deadline</strong> – prazo</li>
+              <li><strong>adaptable</strong> – adaptável</li>
+              <li><strong>functional person</strong> – pessoa funcional</li>
+              <li><strong>functional citizen</strong> – cidadão funcional</li>
+              <li><strong>teamwork</strong> – trabalho em equipe</li>
+              <li><strong>communication</strong> – comunicação</li>
+              <li><strong>attention to detail</strong> – atenção aos detalhes</li>
+              <li><strong>show up on time</strong> – chegar no horário</li>
+              <li><strong>be polite and respectful</strong> – ser educado e respeitoso</li>
+              <li><strong>get promoted</strong> – ser promovido</li>
+              <li><strong>work in teams</strong> – trabalhar em equipes</li>
+              <li><strong>sell yourself</strong> – saber se vender</li>
+            </ul>
+
+            <h3>Gramática e expressões</h3>
+            <ul>
+              <li><strong>present perfect</strong> – presente perfeito</li>
+              <li><strong>You’ve probably never heard that before</strong> – você provavelmente nunca ouviu isso antes</li>
+              <li><strong>whether... or not</strong> – seja... ou não / quer... ou não</li>
+              <li><strong>throughout</strong> – ao longo de / durante</li>
+              <li><strong>career of a lifetime</strong> – carreira da vida / oportunidade da vida</li>
+              <li><strong>part-time summer job</strong> – trabalho de verão de meio período</li>
+              <li><strong>makes sense</strong> – faz sentido</li>
+            </ul>
+
+            <h3>Outros tópicos da aula</h3>
+            <ul>
+              <li><strong>energy powder</strong> – energético em pó</li>
+              <li><strong>pre-workout</strong> – pré-treino</li>
+              <li><strong>caffeine</strong> – cafeína</li>
+              <li><strong>heart attack</strong> – ataque cardíaco</li>
+              <li><strong>dose</strong> – dose</li>
+              <li><strong>indicator / referral selling</strong> – venda por indicação</li>
+              <li><strong>particular teacher</strong> – professor particular</li>
+              <li><strong>French</strong> – francês</li>
+              <li><strong>speak slowly</strong> – falar devagar</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Frases modelo da aula</h2>
+          <div class="outline-card">
+            <ul>
+              <li>I pick up the bus at Santo Antônio bus station.</li>
+              <li>I work from 10:50 PM to 6:50 AM.</li>
+              <li>I don’t have to complain about the salary.</li>
+              <li>I can sleep a little during the day.</li>
+              <li>I stay at the university because I have a two-hour gap.</li>
+              <li>I think I am adaptable.</li>
+              <li>I have a problem with deadlines.</li>
+              <li>I prefer to stay in code.</li>
+              <li>If I have a decent computer, I can do everything I need to do.</li>
+              <li>You’ve probably never heard that before.</li>
+              <li>Whether you realize it or not, soft skills affect your life.</li>
+              <li>I think soft skills are really important in my area.</li>
+              <li>You have to know how to sell yourself.</li>
+              <li>I have a really good particular teacher.</li>
+              <li>The maximum recommended is three doses a day.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Correções importantes</h2>
+          <div class="outline-card">
+            <ul>
+              <li><strong>Pallet / pallets:</strong> houve ajuste de vocabulário para falar corretamente da área e do equipamento relacionado a pallets.</li>
+              <li><strong>Bus station:</strong> o professor corrigiu “terminal” para uma forma mais natural em inglês, usando <strong>bus station</strong>.</li>
+              <li><strong>I don’t have to complain:</strong> essa estrutura apareceu como correção importante para expressar que você não tem do que reclamar.</li>
+              <li><strong>Before working:</strong> o professor ajustou a forma mais natural ao falar do jantar antes do trabalho.</li>
+              <li><strong>At the next day x the next day:</strong> houve correção de naturalidade ao falar sobre voltar para casa no dia seguinte.</li>
+              <li><strong>Regret it:</strong> o professor te ajudou a recuperar essa forma quando você quis dizer que, desta vez, não se arrependeu.</li>
+              <li><strong>It went crazy:</strong> foi trabalhada uma forma mais natural para dizer que alguém “ficou louco” ou exagerou na reação.</li>
+              <li><strong>Whether... or not:</strong> o professor reforçou que essa estrutura costuma funcionar em dupla. Você vê <em>whether</em> e procura o <em>or not</em>.</li>
+              <li><strong>Present perfect:</strong> o vídeo foi usado para revisar frases como <em>You’ve probably never heard that before</em>, reforçando o valor do <strong>participle</strong> com <em>have</em>.</li>
+              <li><strong>Throughout:</strong> foi explicada como uma palavra útil para dizer “ao longo de” ou “durante” alguma fase ou período.</li>
+              <li><strong>Deadline:</strong> quando você falou do problema com prazos, o professor organizou melhor a ideia para soar mais natural em inglês.</li>
+              <li><strong>Weaker:</strong> houve correção para comparar o energy powder com um pre-workout, deixando claro que ele é <strong>weaker</strong>, ou seja, mais fraco.</li>
+              <li><strong>Heart attack:</strong> o professor ajustou essa expressão quando você quis falar dos riscos de muitas doses.</li>
+              <li><strong>Speak slowly:</strong> apareceu como correção importante ao falar da dificuldade de entender francês quando as pessoas falam rápido demais.</li>
+            </ul>
+          </div>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Transcrição &amp; Gravação</h2>
+          <div class="media-row">
+            <a class="media-btn" href="#" role="button">📄 Acessar transcrição</a>
+
+            <a
+              class="media-btn"
+              href="https://youtu.be/jZJrRcYKiyA"
+              target="_blank"
+              rel="noopener noreferrer"
+              role="button"
+              style="background:linear-gradient(180deg,#1f6fd1,#2f86e6);color:#fff;border:none;min-width:260px;"
+            >
+              🎥 Assistir gravação (acesso privado)
+            </a>
+          </div>
+        </section>
+
+        <section class="speaking" aria-label="Distribuição de fala">
+          <h2>Tempo de Fala (Talk Time)</h2>
+          <table class="talk-table">
+            <thead>
+              <tr>
+                <th>Quem falou</th>
+                <th>Porcentagem</th>
+                <th>Duração aproximada</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="row-teacher">
+                <td><span class="talk-label">César (Professor)</span></td>
+                <td><span class="talk-percent">56%</span></td>
+                <td class="talk-time">~34 minutos</td>
+              </tr>
+              <tr class="row-student">
+                <td><span class="talk-label">Mateus</span></td>
+                <td><span class="talk-percent">44%</span></td>
+                <td class="talk-time">~26 minutos</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section>
+          <h2 style="margin-bottom:8px;">Homework</h2>
+          <div class="homework">
+            <p style="margin:0 0 8px 0;">
+              📌 <strong>Lição de casa (como combinado em aula):</strong>
+            </p>
+            <ul style="margin:0 0 6px 18px;padding:0;font-size:0.94rem;color:var(--muted);">
+              <li>Ler o pós-aula de 2 a 3x na semana.</li>
+            </ul>
+          </div>
+
+          <div style="margin-top:14px;">
+            <a class="btn" href="https://wa.me" style="background:#25D366;border-radius:10px;box-shadow:none;">
+              💬 Falar comigo no WhatsApp
+            </a>
+          </div>
+        </section>
+
+      </main>
+
+      <footer>
+        <p style="margin:18px 0 0 0;color:var(--muted);font-size:0.9rem;">
+          © 2025 CZK English • Este conteúdo é exclusivo para fins educacionais. • Suporte: czkenglish@gmail.com
+        </p>
+      </footer>
+    </article>
+  </div>
+</body>
+</html>
